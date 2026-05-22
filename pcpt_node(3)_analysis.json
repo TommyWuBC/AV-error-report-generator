@@ -1,0 +1,203 @@
+{
+    "parsed_lines": 45133,
+    "unparsed_lines": 11221,
+    "severity_counts": {
+        "INFO": 42990,
+        "WARN": 26,
+        "ERR": 2117
+    },
+    "unparsed_categories": {
+        "memory_info": 6128,
+        "thread_info": 1123,
+        "logging_system": 3,
+        "process_map": 1237,
+        "unknown": 1546,
+        "blank": 1184
+    },
+    "time_range": {
+        "start": "0520-10:17:44",
+        "end": "0520-11:27:46"
+    },
+    "top_fault_events": [
+        {
+            "module": "PCPT::ROAD_REGION_FILTER_C::FilterPointsByCar",
+            "message": "Region Map Is Invalid",
+            "severity": "ERR",
+            "count": 1147,
+            "begin_count": 1,
+            "end_count": 0,
+            "first_seen": "0520-10:23:07",
+            "last_seen": "0520-11:27:42",
+            "diagnosis": {
+                "subsystem": "感知模块",
+                "fault_type": "区域地图无效",
+                "severity_level": "P1",
+                "possible_cause": "区域地图配置缺失、损坏或与当前任务地图不匹配。",
+                "suggestion": "检查地图配置文件、区域地图文件和任务区域设置。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT::ROAD_REGION_FILTER_C::FilterPointsByCar",
+            "message": "objLocationReceiver_.GetLocationMsg() Fail",
+            "severity": "ERR",
+            "count": 91,
+            "begin_count": 4,
+            "end_count": 4,
+            "first_seen": "0520-10:33:43",
+            "last_seen": "0520-11:19:16",
+            "diagnosis": {
+                "subsystem": "定位模块",
+                "fault_type": "定位数据异常或缺失",
+                "severity_level": "P1",
+                "possible_cause": "定位消息未正常发布，或 GNSS/IMU/SLAM 数据异常。",
+                "suggestion": "检查定位节点状态、定位话题连接、GNSS/IMU/SLAM 输入。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "ABNORMAL_PRINT_C::DataInvalidPrint",
+            "message": "Topic </box_msgs> Data TimeOut",
+            "severity": "ERR",
+            "count": 69,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0520-10:18:46",
+            "last_seen": "0520-11:27:16",
+            "diagnosis": {
+                "subsystem": "通信/数据链路",
+                "fault_type": "数据超时",
+                "severity_level": "P2",
+                "possible_cause": "上游节点未正常发布数据，或通信链路延迟/中断。",
+                "suggestion": "检查相关 ROS topic 是否正常发布，确认节点状态和网络延迟。",
+                "needs_algorithm_team": false
+            }
+        },
+        {
+            "module": "PCD_NET_MSG_RECEIVER_C::Get",
+            "message": "点云网络检测数据异常",
+            "severity": "ERR",
+            "count": 69,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0520-10:18:46",
+            "last_seen": "0520-11:27:16",
+            "diagnosis": {
+                "subsystem": "感知模块",
+                "fault_type": "点云数据异常",
+                "severity_level": "P1",
+                "possible_cause": "激光雷达、点云网络传输或点云检测链路异常。",
+                "suggestion": "检查 LiDAR 连接、点云输入、网络状态和感知节点运行状态。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT_LOC_3D_MSG_C::UptLocationMsg",
+            "message": "定位数据异常",
+            "severity": "ERR",
+            "count": 14,
+            "begin_count": 6,
+            "end_count": 6,
+            "first_seen": "0520-10:17:45",
+            "last_seen": "0520-11:19:16",
+            "diagnosis": {
+                "subsystem": "定位模块",
+                "fault_type": "定位数据异常或缺失",
+                "severity_level": "P1",
+                "possible_cause": "定位消息未正常发布，或 GNSS/IMU/SLAM 数据异常。",
+                "suggestion": "检查定位节点状态、定位话题连接、GNSS/IMU/SLAM 输入。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT_SUBGRAPH_C::UptTfByStamp",
+            "message": "Failed to obtain the matching pose",
+            "severity": "ERR",
+            "count": 12,
+            "begin_count": 5,
+            "end_count": 7,
+            "first_seen": "0520-10:23:08",
+            "last_seen": "0520-11:11:30",
+            "diagnosis": {
+                "subsystem": "定位/坐标变换模块",
+                "fault_type": "匹配位姿获取失败",
+                "severity_level": "P2",
+                "possible_cause": "定位数据、TF 坐标变换或时间戳匹配异常。",
+                "suggestion": "检查定位数据时间戳、TF 发布状态以及感知节点与定位节点的时间同步。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "DET_STATIC_C::PeriodPub",
+            "message": "感知数据异常",
+            "severity": "ERR",
+            "count": 10,
+            "begin_count": 5,
+            "end_count": 5,
+            "first_seen": "0520-10:23:08",
+            "last_seen": "0520-11:19:16",
+            "diagnosis": {
+                "subsystem": "感知模块",
+                "fault_type": "感知数据异常",
+                "severity_level": "P1",
+                "possible_cause": "感知数据链路异常，可能与点云、检测结果或上游感知输入有关。",
+                "suggestion": "检查 LiDAR/相机输入、感知节点状态和相关 ROS topic 是否正常。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT_ABNORMAL_C::SetAbnormal",
+            "message": "Det_Dynamic_Obst: set abnormal, residual abnormal: 1",
+            "severity": "ERR",
+            "count": 5,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0520-10:17:45",
+            "last_seen": "0520-11:11:15",
+            "diagnosis": {
+                "subsystem": "感知模块",
+                "fault_type": "动态障碍物检测异常",
+                "severity_level": "P2",
+                "possible_cause": "动态障碍物检测结果异常或残差异常。",
+                "suggestion": "检查动态障碍物检测输入、点云/视觉数据质量和检测模块状态。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "ABNORMAL_PRINT_C::DataInvalidPrint",
+            "message": "Topic </box_msgs> Data Time Out",
+            "severity": "ERR",
+            "count": 5,
+            "begin_count": 3,
+            "end_count": 2,
+            "first_seen": "0520-10:17:46",
+            "last_seen": "0520-11:27:45",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT_ABNORMAL_C::SetAbnormal",
+            "message": "Det_Dynamic_Obst: reset abnormal, residual abnormal: 0",
+            "severity": "ERR",
+            "count": 5,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0520-10:18:02",
+            "last_seen": "0520-11:19:16",
+            "diagnosis": {
+                "subsystem": "感知模块",
+                "fault_type": "动态障碍物检测异常",
+                "severity_level": "P2",
+                "possible_cause": "动态障碍物检测结果异常或残差异常。",
+                "suggestion": "检查动态障碍物检测输入、点云/视觉数据质量和检测模块状态。",
+                "needs_algorithm_team": true
+            }
+        }
+    ]
+}

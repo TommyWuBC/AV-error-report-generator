@@ -1,0 +1,203 @@
+{
+    "parsed_lines": 265776,
+    "unparsed_lines": 4008,
+    "severity_counts": {
+        "INFO": 255902,
+        "WARN": 9311,
+        "ERR": 563
+    },
+    "unparsed_categories": {
+        "memory_info": 1507,
+        "thread_info": 487,
+        "logging_system": 3,
+        "process_map": 1236,
+        "unknown": 365,
+        "blank": 410
+    },
+    "time_range": {
+        "start": "0521-11:11:20",
+        "end": "0521-11:28:35"
+    },
+    "top_fault_events": [
+        {
+            "module": "PCPT::PCPT_VISION_AREA_C::GetVisionArea",
+            "message": "Func <VisionSeg> Get <front_mid_right> Camera Data <粗水管> (15) Fail",
+            "severity": "ERR",
+            "count": 31,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:11:38",
+            "last_seen": "0521-11:11:41",
+            "diagnosis": {
+                "subsystem": "视觉感知模块",
+                "fault_type": "相机数据获取失败",
+                "severity_level": "P1",
+                "possible_cause": "相机输入异常、视觉分割模块异常或图像数据未正常接收。",
+                "suggestion": "检查相机设备连接、图像话题发布状态以及视觉分割模块运行状态。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT::PCPT_VISION_AREA_C::GetVisionArea",
+            "message": "Func <VisionSeg> Get <front_mid_left> Camera Data <粗水管> (15) Fail",
+            "severity": "ERR",
+            "count": 31,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:11:38",
+            "last_seen": "0521-11:11:41",
+            "diagnosis": {
+                "subsystem": "视觉感知模块",
+                "fault_type": "相机数据获取失败",
+                "severity_level": "P1",
+                "possible_cause": "相机输入异常、视觉分割模块异常或图像数据未正常接收。",
+                "suggestion": "检查相机设备连接、图像话题发布状态以及视觉分割模块运行状态。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT_LOC_3D_MSG_C::UptLocationMsg",
+            "message": "定位数据异常",
+            "severity": "ERR",
+            "count": 6,
+            "begin_count": 2,
+            "end_count": 2,
+            "first_seen": "0521-11:11:21",
+            "last_seen": "0521-11:11:59",
+            "diagnosis": {
+                "subsystem": "定位模块",
+                "fault_type": "定位数据异常或缺失",
+                "severity_level": "P1",
+                "possible_cause": "定位消息未正常发布，或 GNSS/IMU/SLAM 数据异常。",
+                "suggestion": "检查定位节点状态、定位话题连接、GNSS/IMU/SLAM 输入。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT_SUBGRAPH_C::UptTfByStamp",
+            "message": "Failed to obtain the matching pose",
+            "severity": "ERR",
+            "count": 6,
+            "begin_count": 2,
+            "end_count": 4,
+            "first_seen": "0521-11:11:38",
+            "last_seen": "0521-11:15:23",
+            "diagnosis": {
+                "subsystem": "定位/坐标变换模块",
+                "fault_type": "匹配位姿获取失败",
+                "severity_level": "P2",
+                "possible_cause": "定位数据、TF 坐标变换或时间戳匹配异常。",
+                "suggestion": "检查定位数据时间戳、TF 发布状态以及感知节点与定位节点的时间同步。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "DET_STATIC_C::PeriodPub",
+            "message": "感知数据异常",
+            "severity": "ERR",
+            "count": 2,
+            "begin_count": 1,
+            "end_count": 1,
+            "first_seen": "0521-11:11:21",
+            "last_seen": "0521-11:11:59",
+            "diagnosis": {
+                "subsystem": "感知模块",
+                "fault_type": "感知数据异常",
+                "severity_level": "P1",
+                "possible_cause": "感知数据链路异常，可能与点云、检测结果或上游感知输入有关。",
+                "suggestion": "检查 LiDAR/相机输入、感知节点状态和相关 ROS topic 是否正常。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "ABNORMAL_PRINT_C::DataInvalidPrint",
+            "message": "Topic </vision_detect> Data Time Out",
+            "severity": "ERR",
+            "count": 2,
+            "begin_count": 1,
+            "end_count": 1,
+            "first_seen": "0521-11:11:24",
+            "last_seen": "0521-11:11:52",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT::PCPT_VISION_DECT_C::UptVisionData",
+            "message": "Vision rect data abnormal",
+            "severity": "ERR",
+            "count": 2,
+            "begin_count": 1,
+            "end_count": 1,
+            "first_seen": "0521-11:11:24",
+            "last_seen": "0521-11:11:52",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "ABNORMAL_PRINT_C::DataInvalidPrint",
+            "message": "Topic </vision_segment> Data Time Out",
+            "severity": "ERR",
+            "count": 2,
+            "begin_count": 1,
+            "end_count": 1,
+            "first_seen": "0521-11:11:24",
+            "last_seen": "0521-11:11:52",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PCPT::PCPT_VISION_SEG_C::UptVisionData",
+            "message": "Vision seg data abnormal",
+            "severity": "ERR",
+            "count": 2,
+            "begin_count": 1,
+            "end_count": 1,
+            "first_seen": "0521-11:11:24",
+            "last_seen": "0521-11:11:52",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "PROBABILITY_SUBGRAPH_C::UptFiniteGrid",
+            "message": "Failed to update tf by stamp:1779333098.421478",
+            "severity": "ERR",
+            "count": 2,
+            "begin_count": 0,
+            "end_count": 2,
+            "first_seen": "0521-11:11:38",
+            "last_seen": "0521-11:11:38",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,202 @@
+{
+    "parsed_lines": 77736,
+    "unparsed_lines": 1090,
+    "severity_counts": {
+        "INFO": 76361,
+        "WARN": 1,
+        "ERR": 1372,
+        "FATAL": 2
+    },
+    "unparsed_categories": {
+        "logging_system": 3,
+        "unknown": 3,
+        "process_map": 1076,
+        "blank": 8
+    },
+    "time_range": {
+        "start": "0521-11:11:20",
+        "end": "0521-11:28:57"
+    },
+    "top_fault_events": [
+        {
+            "module": "NAV::FIXED_ROUTE_TASK_C::UptState",
+            "message": "Check(0 == rsltOfGetCtrlOfAlongRoute) Fail",
+            "severity": "FATAL",
+            "count": 1,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:18:59",
+            "last_seen": "0521-11:18:59",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "GLOBAL_PLANNER_C::GetLaneInfo",
+            "message": "Check(rslt == 0) Fail",
+            "severity": "FATAL",
+            "count": 1,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:25:56",
+            "last_seen": "0521-11:25:56",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "DETECT_PIPE_RECEIVER_C::GetPipeLineObsts",
+            "message": "Data Invalid",
+            "severity": "ERR",
+            "count": 420,
+            "begin_count": 210,
+            "end_count": 210,
+            "first_seen": "0521-11:12:15",
+            "last_seen": "0521-11:28:56",
+            "diagnosis": {
+                "subsystem": "数据接收模块",
+                "fault_type": "数据无效",
+                "severity_level": "P2",
+                "possible_cause": "接收到的数据为空、格式错误或未正常更新。",
+                "suggestion": "检查上游数据发布节点和数据格式。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "DETECT_PIPE_RECEIVER_C::GetWireObsts",
+            "message": "Data Invalid",
+            "severity": "ERR",
+            "count": 420,
+            "begin_count": 210,
+            "end_count": 210,
+            "first_seen": "0521-11:12:15",
+            "last_seen": "0521-11:28:56",
+            "diagnosis": {
+                "subsystem": "数据接收模块",
+                "fault_type": "数据无效",
+                "severity_level": "P2",
+                "possible_cause": "接收到的数据为空、格式错误或未正常更新。",
+                "suggestion": "检查上游数据发布节点和数据格式。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "NAV::FIXED_ROUTE_TASK_C::GetCtrl",
+            "message": "State Is Abnormal",
+            "severity": "ERR",
+            "count": 73,
+            "begin_count": 31,
+            "end_count": 30,
+            "first_seen": "0521-11:12:07",
+            "last_seen": "0521-11:28:42",
+            "diagnosis": {
+                "subsystem": "导航控制模块",
+                "fault_type": "导航状态异常",
+                "severity_level": "P1",
+                "possible_cause": "导航状态机进入异常状态，可能由定位、感知或路径规划异常触发。",
+                "suggestion": "检查导航状态机、路径规划结果以及上游定位/感知输入。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "LOC_ENV_GENERATOR_C::AddMapObst",
+            "message": "获取感知数据失败，请检查感知程序是否正常运行 (isIncludeForward=1, isIncludeBackward=0)",
+            "severity": "ERR",
+            "count": 40,
+            "begin_count": 20,
+            "end_count": 20,
+            "first_seen": "0521-11:17:29",
+            "last_seen": "0521-11:25:57",
+            "diagnosis": {
+                "subsystem": "导航-感知接口",
+                "fault_type": "感知数据获取失败",
+                "severity_level": "P1",
+                "possible_cause": "导航模块无法获取感知结果，可能是感知节点异常或 ROS topic 中断。",
+                "suggestion": "检查感知节点是否正常运行，确认相关 topic 是否正常发布。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "NAV::DYNC_MAP_MNG_C::ProcDyncMapStateRpt",
+            "message": "Not Recv State Rpt Rsp",
+            "severity": "ERR",
+            "count": 17,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:12:31",
+            "last_seen": "0521-11:28:32",
+            "diagnosis": {
+                "subsystem": "动态地图管理模块",
+                "fault_type": "状态响应未接收",
+                "severity_level": "P2",
+                "possible_cause": "动态地图管理模块未收到状态响应，可能存在通信异常。",
+                "suggestion": "检查动态地图服务状态、通信链路和相关 ROS 服务。",
+                "needs_algorithm_team": false
+            }
+        },
+        {
+            "module": "LOC_ENV_GENERATOR_C::AddMapObst",
+            "message": "获取感知数据失败，请检查感知程序是否正常运行 (isIncludeForward=254, isIncludeBackward=255)",
+            "severity": "ERR",
+            "count": 10,
+            "begin_count": 5,
+            "end_count": 5,
+            "first_seen": "0521-11:19:00",
+            "last_seen": "0521-11:19:08",
+            "diagnosis": {
+                "subsystem": "导航-感知接口",
+                "fault_type": "感知数据获取失败",
+                "severity_level": "P1",
+                "possible_cause": "导航模块无法获取感知结果，可能是感知节点异常或 ROS topic 中断。",
+                "suggestion": "检查感知节点是否正常运行，确认相关 topic 是否正常发布。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "CLOSE_EDGE_ROUTE_PLAN_ALGO_C::Plan",
+            "message": "GetDefaultMoveRoute() Fail. And Use The Src Loc Route",
+            "severity": "ERR",
+            "count": 4,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:19:16",
+            "last_seen": "0521-11:19:19",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        },
+        {
+            "module": "NAV::FIXED_ROUTE_TASK_C::UptState",
+            "message": "规划器为空，等待规划器初始化完成。",
+            "severity": "ERR",
+            "count": 3,
+            "begin_count": 0,
+            "end_count": 0,
+            "first_seen": "0521-11:18:56",
+            "last_seen": "0521-11:19:10",
+            "diagnosis": {
+                "subsystem": "未知模块",
+                "fault_type": "未分类故障",
+                "severity_level": "P3",
+                "possible_cause": "当前规则库未覆盖该故障模式。",
+                "suggestion": "建议人工复核该日志事件，并根据实际原因补充规则。",
+                "needs_algorithm_team": true
+            }
+        }
+    ]
+}
