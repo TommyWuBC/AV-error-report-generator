@@ -25,3 +25,14 @@ def save_markdown_report(log_path, report_text):
         report_file.write(report_text)
 
     return report_path
+
+def save_ai_report(log_path, report_text):
+    report_path = log_path.with_name(log_path.stem + "_ai_report.md")
+
+    with open(report_path, "w", encoding="utf-8") as report_file:
+        report_file.write(report_text)
+
+    return report_path
+
+def get_pdf_report_path(log_path):
+    return log_path.with_name(log_path.stem + "_ai_report.pdf")

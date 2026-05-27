@@ -1,0 +1,16 @@
+# Secrets / local config
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Test inputs (large logs)
+*.log
+
+# Generated outputs
+*_analysis.json
+*_report.md
+*_ai_report.md
+*_prompt.txt
+*.pdf
