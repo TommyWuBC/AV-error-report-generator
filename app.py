@@ -12,6 +12,8 @@ from io_utils import (
 )
 from pdf_export import markdown_to_pdf
 from io_utils import get_pdf_report_path
+import subprocess
+import sys
 
 st.set_page_config(page_title="AV Fault Diagnosis Tool")
 
@@ -24,12 +26,12 @@ uploaded_file = st.file_uploader(
 
 provider_display = st.selectbox(
     "选择大模型服务",
-    ["千问", "OpenAI"]
+    ["千问", "OpenAI(大陆不支持)"]
 )
 
 provider_map = {
     "千问": "qwen",
-    "OpenAI": "openai",
+    "OpenAI(大陆不支持)": "openai",
 }
 
 provider = provider_map[provider_display]
@@ -66,14 +68,24 @@ if uploaded_file is not None:
                 ai_report
             )
         pdf_path = get_pdf_report_path(log_path)
-        markdown_to_pdf(ai_report, pdf_path)
+        subprocess.run(
+            [
+                sys.executable,
+                "pdf_worker.py",
+                str(report_path),
+                str(pdf_path),
+            ],
+            check=True,
+        )
+        with open(pdf_path, "rb") as file:
+            pdf_bytes = file.read()
         st.success("诊断完成")
 
         st.download_button(
-            "下载 Markdown 报告",
-            data=ai_report,
+            "下载报告",
+            data=pdf_bytes,
             file_name=pdf_path.name,
-            mime="text/markdown"
+            mime="application/pdf"
         )
 
         st.json(analysis_result)

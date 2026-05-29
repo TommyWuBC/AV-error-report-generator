@@ -75,12 +75,12 @@ def classify_unparsed_line(line):
 
 def parse_interval_marker(message):
     if message.endswith(". Begin."):
-        base_message = message.removesuffix(". Begin.")
+        base_message = message[:-len(". Begin.")]
         base_message = base_message.rstrip(".")
         return base_message, "begin"
 
     if message.endswith(". End."):
-        base_message = message.removesuffix(". End.")
+        base_message = message[:-len(". End.")]
         base_message = base_message.rstrip(".")
         return base_message, "end"
 

@@ -1,10 +1,11 @@
+import asyncio
 from pathlib import Path
 
 import markdown
-from playwright.sync_api import sync_playwright
+from playwright.async_api import async_playwright
 
 
-def markdown_to_pdf(markdown_text, output_path):
+async def markdown_to_pdf_async(markdown_text, output_path):
     html_body = markdown.markdown(
         markdown_text,
         extensions=["tables", "fenced_code"]
@@ -22,31 +23,18 @@ def markdown_to_pdf(markdown_text, output_path):
                 font-size: 12px;
                 margin: 32px;
             }}
-
-            h1, h2, h3 {{
-                color: #222;
-            }}
-
             table {{
                 border-collapse: collapse;
                 width: 100%;
-                margin: 12px 0;
                 font-size: 10px;
             }}
-
             th, td {{
                 border: 1px solid #999;
                 padding: 6px;
                 vertical-align: top;
             }}
-
             th {{
                 background: #f2f2f2;
-            }}
-
-            code {{
-                font-family: Consolas, monospace;
-                font-size: 10px;
             }}
         </style>
     </head>
@@ -58,11 +46,11 @@ def markdown_to_pdf(markdown_text, output_path):
 
     output_path = Path(output_path)
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        page = browser.new_page()
-        page.set_content(html, wait_until="load")
-        page.pdf(
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page()
+        await page.set_content(html, wait_until="load")
+        await page.pdf(
             path=str(output_path),
             format="A4",
             print_background=True,
@@ -73,6 +61,10 @@ def markdown_to_pdf(markdown_text, output_path):
                 "left": "14mm",
             },
         )
-        browser.close()
+        await browser.close()
 
     return output_path
+
+
+def markdown_to_pdf(markdown_text, output_path):
+    return asyncio.run(markdown_to_pdf_async(markdown_text, output_path))
